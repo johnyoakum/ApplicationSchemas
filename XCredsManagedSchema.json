@@ -1,0 +1,727 @@
+{
+    "title": "XCreds (com.twocanoes.xcreds)",
+    "description": "XCreds OAuth Settings",
+    "properties": {
+        "ADDomain": {
+            "type": "string",
+            "title": "ADDomain",
+            "description": "The desired AD Domain",
+            "property_order": 1
+        },
+        "clientID": {
+            "type": "string",
+            "title": "Client ID",
+            "description": "The OIDC client id public identifier for the app.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 5
+        },
+        "clientSecret": {
+            "type": "string",
+            "title": "Client Secret",
+            "description": "Client Secret sometimes required by identity provider.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 10
+        },
+        "CreateAdminUser": {
+            "type": "boolean",
+            "title": "Create User as Admin",
+            "default": false,
+            "description": "When set to true and the user account is created, the user will be a local admin.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 15
+        },
+        "CreateAdminIfGroupMember": {
+            "type": "array",
+            "title": "Create Admin If Group Member",
+            "items": {
+                "group": "string"
+            },
+            "description": "List of groups that should have its members created as local administrators. Set as an Array of Strings of the group identifier",
+            "property_order": 16
+        },
+        "shouldSwitchToLoginWindowWhenLocked": {
+            "type": "boolean",
+            "title": "Should Switch to Login Window When Locked",
+            "description": "When set to true and the user locks the current session, XCreds will tell the system to switch to Login Window. The current session will stay active but the user will login with the XCreds Login Windows to resume the session.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 17
+        },
+        "discoveryURL": {
+            "type": "string",
+            "title": "Discovery URL",
+            "default": "https://login.microsoftonline.com/common/.well-known/openid-configuration",
+            "description": "The discovery URL provided by your OIDC / Cloud provider.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 20
+        },
+        "EnableFDE": {
+            "type": "boolean",
+            "title": "Enable Full Disk Encryption (FDE)",
+            "default": false,
+            "description": "Enabled FDE enabled at first login on APFS disks.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 25
+        },
+        "EnableFDERecoveryKey": {
+            "type": "boolean",
+            "title": "Save PRK",
+            "default": false,
+            "description": "Save the Personal Recovery Key (PRK) to disk for the MDM Escrow Service to collect.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 30
+        },
+        "EnableFDERecoveryKeyPath": {
+            "type": "string",
+            "title": "FDE Recovery Key Path",
+            "description": "Specify a custom path for the recovery key.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 35
+        },
+        "EnableFDERekey": {
+            "type": "boolean",
+            "title": "Enable FDE Rekey",
+            "default": false,
+            "description": "Rotate the Personal Recovery Key (PRK).",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 40
+        },
+        "loginWindowWidth": {
+            "type": "integer",
+            "title": "Login Window Width",
+            "range_min": 100,
+            "description": "Login Window webview width (Integer). If this is not defined, it will be full width. Minimum value of 100.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 41
+        },
+        "loginWindowHeight": {
+            "type": "integer",
+            "title": "Login Window Height",
+            "range_min": 100,
+            "description": "Login Window webview height (Integer). If this is not defined, it will be full height. Minimum value of 100.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 42
+        },
+        "loginWindowBackgroundImageURL": {
+            "type": "string",
+            "title": "Login Window Background Image URL",
+            "default": "file:///System/Library/Desktop Pictures/Monterey Graphic.heic",
+            "description": "URL to an image to show in the background while logging in.",
+            "pattern": "(https?://|file:///).*",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 45
+        },
+        "passwordChangeURL": {
+            "type": "string",
+            "title": "Password Change URL for Menu",
+            "description": "Add a menu item for changing the password that will open this URL when the menu item is selected.",
+            "pattern": "https?://.*",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 50
+        },
+        "redirectURI": {
+            "type": "string",
+            "title": "Redirect URI",
+            "default": "xcreds://auth/",
+            "description": "URI to redirect to when authentication is complete.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 55
+        },
+        "refreshRateHours": {
+            "type": "integer",
+            "title": "Password Change Check Rate Hours",
+            "default": 3,
+            "range_max": 168,
+            "range_min": 0,
+            "value_unit": "hours",
+            "description": "The number of hours between checks. Default value: 3. Minimum value: 0. Max value: 168.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 60
+        },
+        "refreshRateMinutes": {
+            "type": "integer",
+            "title": "Password Change Check Rate Minutes",
+            "default": 0,
+            "range_max": 59,
+            "range_min": 0,
+            "value_unit": "minutes",
+            "description": "The number of minutes between checks. Default value: 0. Minimum value: 0. Max value: 59. This value is added to refreshRateHours.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 61
+        },
+        "scopes": {
+            "type": "string",
+            "title": "Scopes",
+            "default": "profile openid offline_access",
+            "description": "Scopes tell the identify provider what information to return. Note that the values are provided with a single space between them. Provide the following values the follow IdPs: Google: profile openid email Azure: profile openid offline_access Note that Google does not support the offline_access scope so instead use the preference shouldSetGoogleAccessTypeToOffline. Azure provides unique_name which is mapped to the local user account by using the prefix before “@” in unique_name and matching to the short name of a user account. Google provides “email” and is matched in the same way.",
+            "note": "All scopes should be lowercase and separated by single spaces",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 65
+        },
+        "shouldSetGoogleAccessTypeToOffline": {
+            "type": "boolean",
+            "title": "Request Google Refresh Token",
+            "default": false,
+            "description": "When using Google IdP, a refresh token may need be requested in a non-standard way.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 70
+        },
+        "shouldShowCloudLoginByDefault": {
+            "type": "boolean",
+            "title": "Show Cloud Login By Default",
+            "default": true,
+            "description": "Determine if the mac login window or the cloud login window is shown by default",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 75
+        },
+        "shouldPreferLocalLoginInsteadOfCloudLogin": {
+            "type": "boolean",
+            "title": "Show Local Login over Cloud Login",
+            "default": false,
+            "description": "Favor using XCreds' local login screen over the cloud login UI.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 76
+        },
+        "shouldVerifyPasswordWithRopg": {
+            "type": "boolean",
+            "title": "Use ROPG when testing password",
+            "default": false,
+            "description": "When verifying password in the menu app, use ROPG.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 77
+        },
+        "ropgClientID": {
+            "type": "string",
+            "title": "ROPG Client ID",
+            "default": false,
+            "description": "ROPG Client ID for use when checking password",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 78
+        },
+        "ropgClientSecret": {
+            "type": "string",
+            "title": "ROPG Client Secret",
+            "default": false,
+            "description": "ROPG Client Secret for use when checking password",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 79
+        },
+        "autoRefreshLoginTimer": {
+            "type": "integer",
+            "title": "Automatically Refresh Login Window (seconds)",
+            "default": 0,
+            "description": "Timer for automatically refreshing login screen in seconds. If set to 0, does not automatically refresh.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 80
+        },
+        "cloudLoginText": {
+            "type": "string",
+            "title": "Cloud Login Text",
+            "default": "Cloud Login",
+            "description": "Text for return to cloud login on Mac login screen",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 81
+        },
+        "shouldShowAboutMenu": {
+            "type": "boolean",
+            "title": "Show About Menu",
+            "default": true,
+            "description": "Show the About Menu",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 84
+        },
+        "shouldShowConfigureWifiButton": {
+            "type": "boolean",
+            "title": "Show Configure WiFi",
+            "default": true,
+            "description": "Show Configure WiFi button in XCreds Login.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 85
+        },
+        "shouldShowPreferencesOnStart": {
+            "type": "boolean",
+            "title": "Show Preferences on Startup",
+            "default": false,
+            "description": "If no settings are specified, preferences will not be shown on startup.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 90
+        },
+        "shouldShowMacLoginButton": {
+            "type": "boolean",
+            "title": "Show Mac Login Window button",
+            "default": true,
+            "description": "Show the Mac Login Window button in XCreds Login.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 95
+        },
+        "shouldShowLocalOnlyCheckbox": {
+            "type": "boolean",
+            "title": "Show Local Only Checkbox",
+            "default": true,
+            "description": "Show the local only checkbox on the local login page",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 96
+        },
+        "usernamePlaceholder": {
+            "type": "string",
+            "title": "Username Placeholder Text",
+            "description": "Placeholder text in local / AD login window for username",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 97
+        },
+        "passwordPlaceholder": {
+            "type": "string",
+            "title": "Password Placeholder Text",
+            "description": "Placeholder text in local / AD login window for password",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 98
+        },
+        "shouldShowSupportStatus": {
+            "type": "boolean",
+            "title": "Show Support Status Message",
+            "default": true,
+            "description": "Show message in XCreds Login reminding people to buy support.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 100
+        },
+        "shouldShowQuitMenu": {
+            "type": "boolean",
+            "title": "Show Quit Menu Item",
+            "default": true,
+            "description": "Show Quit Menu Item in the menu.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 105
+        },
+        "shouldShowVersionInfo": {
+            "type": "boolean",
+            "title": "Show Version and Build Number",
+            "default": true,
+            "description": "Show the version number and build number in the lower left corner of XCreds Login.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 110
+        },
+        "showDebug": {
+            "type": "boolean",
+            "title": "Show Debug Message",
+            "default": false,
+            "description": "Show debug local notifications.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "hhttps://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 115
+        },
+        "username": {
+            "type": "string",
+            "title": "Local Username",
+            "description": "When a user uses cloud login, XCreds will try and figure out the local username based on the email or other data returned for the IdP. Use this value to force the local username for any cloud login. Provide only the shortname.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 120
+        },
+        "verifyPassword": {
+            "type": "boolean",
+            "title": "Verify Cloud Password",
+            "default": true,
+            "description": "Show prompt to verify cloud password before setting keychain and login.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 125
+        },
+        "idpHostName": {
+            "type": "string",
+            "title": "IDP Host Name",
+            "description": "hostname of the page that has the password field.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 130
+        },
+        "idpHostNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "title": "idpHostNames",
+            "description": "array of hostnames of the page that has the password field.",
+            "property_order": 135
+        },
+        "passwordElementID": {
+            "type": "string",
+            "title": "Password Element ID",
+            "description": "password element id of the html element that has the password.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 140
+        },
+        "KeychainReset": {
+            "type": "boolean",
+            "title": "Keychain Reset",
+            "default": false,
+            "description": "Reset the keychain without prompting if the login password doesn't match the local password.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 165
+        },
+        "PasswordOverwriteSilent": {
+            "type": "boolean",
+            "title": "Overwrite Password Silently",
+            "default": false,
+            "description": "Update the password silently to the new one. Used with the KeychainReset if the user has a secure token.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 170
+        },
+        "SecureTokenManagementUsername": {
+            "type": "string",
+            "title": "Secure Token Management Username",
+            "description": "Username to use for the secure token management account",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 175
+        },
+        "SecureTokenManagementPasswordLocation": {
+            "type": "string",
+            "title": "Secure Token Management Password Location",
+            "description": "The location to read the Secure Token management password",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 180
+        },
+        "map_firstname": {
+            "type": "string",
+            "title": "First Name OIDC Mapping",
+            "description": "Local DS to OIDC Mapping for First Name",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 185
+        },
+        "map_lastname": {
+            "type": "string",
+            "title": "Last Name OIDC Mapping",
+            "default": "given_name",
+            "description": "Local DS to OIDC Mapping for Last Name",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 190
+        },
+        "map_fullname": {
+            "type": "string",
+            "title": "Full Name OIDC Mapping",
+            "default": "name",
+            "description": "Local DS to OIDC Mapping for Name",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 195
+        },
+        "map_username": {
+            "type": "string",
+            "title": "Username OIDC Mapping",
+            "default": "name",
+            "description": "Local DS to OIDC Mapping for Name",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 200
+        },
+        "shouldShowRefreshBanner": {
+            "type": "boolean",
+            "title": "Show Refresh Banner",
+            "default": true,
+            "description": "Show text at the top of the prompt window when tokens expire.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 205
+        },
+        "shouldFindPasswordElement": {
+            "type": "boolean",
+            "title": "Find Password Element",
+            "default": false,
+            "description": "This finds the password by finding the HTML element that has bullets (type=password)",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 210
+        },
+        "localAdminUserName": {
+            "type": "string",
+            "title": "Local Admin User Name",
+            "default": "given_name",
+            "description": "Username of local admin user. DO NOT SET THIS IN PREFERENCES. It is recommended to set this with the settingsOverrideScriptPath script. This user is used to reset the keychain if the user forgets their local password and to setup a secure token for newly created users.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 190
+        },
+        "localAdminPassword": {
+            "type": "string",
+            "title": "Local Admin Password",
+            "description": "Password of local admin user. DO NOT SET THIS IN PREFERENCES. It is recommended to set this with the settingsOverrideScriptPath script. This user is used to reset the keychain if the user forgets their local password and to setup a secure token for newly created users.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 190
+        },
+        "shouldDetectNetworkToDetermineLoginWindow": {
+            "type": "boolean",
+            "default": false,
+            "title": "Should Detect Network ToDetermine LoginWindow",
+            "description": "Check if network is up. If not, select username and password login window.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 195
+        },
+        "settingsOverrideScriptPath": {
+            "type": "string",
+            "default": "name",
+            "title": "Override Script Path",
+            "description": "Script to override defaults. Must return valid property list with specified defaults. Script must exist at path ,be owned by _securityagent and  writable and executable only by _securityagent.",
+            "links": [
+                {
+                    "rel": "More information",
+                    "href": "https://twocanoes.com/knowledge-base/xcreds-admin-guide/#preferences"
+                }
+            ],
+            "property_order": 210
+        }
+    }
+}
