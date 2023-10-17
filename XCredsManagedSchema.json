@@ -48,9 +48,18 @@
         "CreateAdminIfGroupMember": {
             "type": "array",
             "title": "Create Admin If Group Member",
-            "items": {
-                "group": "string"
-            },
+            "items": [
+                {"type": "string"},
+                {"type": "string"},
+                {"type": "string"},
+                {"type": "string"},
+                {"type": "string"},
+                {"type": "string"},
+                {"type": "string"},
+                {"type": "string"},
+                {"type": "string"},
+                {"type": "string"}
+            ],
             "description": "List of groups that should have its members created as local administrators. Set as an Array of Strings of the group identifier",
             "property_order": 16
         },
